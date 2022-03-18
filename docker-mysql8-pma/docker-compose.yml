@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.28
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    ports:
+      - "33769:3306"
+    container_name: mysql8-local
+    environment:
+      MYSQL_ROOT_PASSWORD: "secret"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "secret"
+    restart: always
+  pma:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8001:80"
+    container_name: pma-local
+    restart: always
+    environment:
+      PMA_HOST: db

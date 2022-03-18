@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  mongodb:
+    container_name: mongodb-local
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rully
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 33770:27017
+    restart: unless-stopped
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb:
+
+
