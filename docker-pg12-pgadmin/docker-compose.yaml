@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     container_name: pg_local
-    image: postgres:11-alpine
+    image: postgres:12-alpine
     restart: always
     environment:
       POSTGRES_USER: root
@@ -21,4 +21,4 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: secret
     ports:
-      - "5050:80"
+      - "5555:80"
