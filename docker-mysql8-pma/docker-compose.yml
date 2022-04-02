@@ -4,7 +4,7 @@ services:
   db:
     image: mysql:8.0.28
     volumes:
-      - /home/rully/code/database/docker-mysql8-data/mysql:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
     ports:
       - "33769:3306"
     container_name: mysql8-local

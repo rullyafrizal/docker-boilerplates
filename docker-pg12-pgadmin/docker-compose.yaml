@@ -4,7 +4,7 @@ services:
   db:
     container_name: pg_local
     image: postgres:12-alpine
-    restart: always
+    restart: on-failure
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -16,7 +16,7 @@ services:
   pgadmin:
     container_name: pgadmin4_local
     image: dpage/pgadmin4
-    restart: always
+    restart: on-failure
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: secret
